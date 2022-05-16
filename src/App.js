@@ -57,7 +57,6 @@ export default function App() {
           <Link to="/posts">Posts {posts && "(" + posts + ")"}</Link>
           <Link to="/albums">Albums {albums && "(" + albums + ")"}</Link>
           <Link to="/photos">Photos {photos && "(" + photos + ")"}</Link>
-          <Link to="/todos">Todos {todos && "(" + todos + ")"}</Link>
         </div>
         <Routes>
           <Route path="/" exact element={<Home />} />
@@ -68,7 +67,6 @@ export default function App() {
           <Route path="/albums" element={<Albums />} />
           <Route path="/photos/" element={<Photos />} />
           <Route path="/photos/:page" element={<Photos />} />
-          <Route path="/todos" element={<Todos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

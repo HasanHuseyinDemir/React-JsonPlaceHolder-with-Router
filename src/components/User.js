@@ -17,7 +17,9 @@ export default function User() {
 
   //Todolist
   useEffect(() => {
-    axios(`https://jsonplaceholder.typicode.com/users/${userId.id}/todos`);
+    axios(
+      `https://jsonplaceholder.typicode.com/users/${userId.id}/todos`
+    ).then((el) => setUserTodo(el.data));
   }, []);
 
   return (
@@ -52,11 +54,21 @@ export default function User() {
           <p>
             <span>Website</span> <span>{user.website}</span>
           </p>
+          <h1>To Do</h1>
+          <div>
+            {userTodo &&
+              userTodo.map((todo) => (
+                <p key={todo.id}>
+                  <input
+                    type="checkbox"
+                    checked={todo.completed === true && true}
+                  />
+                  {todo.title}
+                </p>
+              ))}
+          </div>
         </div>
       )}
-      <div>
-        <h1>Todo</h1>
-      </div>
 
       <button className="button" title={"Posts of " + user.name}>
         Posts
