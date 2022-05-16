@@ -38,7 +38,9 @@ export default function Photos() {
             .slice(parseInt(pages * per), parseInt(pages * per + 20))
             .map((photo) => (
               <div className="photo">
-                <img src={photo.thumbnailUrl} />
+                <a href={photo.url}>
+                  <img src={photo.thumbnailUrl} />
+                </a>
                 <p>{photo.title}</p>
               </div>
             ))}
