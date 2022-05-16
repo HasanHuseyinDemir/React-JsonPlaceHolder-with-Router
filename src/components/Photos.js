@@ -1,18 +1,18 @@
-import { Children, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter, Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 export default function Photos() {
   const [photos, setPhotos] = useState([]);
   const page = useParams();
-  const [pages, setPages] = useState(1);
+  const [pages, setPages] = useState(0);
   const [per, setPer] = useState(20);
 
   //Sayfa Numarasına Erişim
   //Eğer sayfa numarası belirtilmedi ise
   useEffect(() => {
     if (!page.page) {
-      setPages(1);
+      setPages(0);
     } else {
       setPages(page.page);
     }
@@ -24,10 +24,31 @@ export default function Photos() {
       setPhotos(el.data)
     );
   }, []);
+
+  let navi = useNavigate();
+
+  function switcher() {
+    navi("/photos");
+  }
+
+  useEffect(() => {
+    if (pages * 20 >= photos.length || pages < 0) {
+      setPages(0);
+    }
+  }, [pages]);
+
   return (
     <>
       <h1 className="photosNav">
-        Photos <br />
+        Photos
+        <span
+          style={{
+            fontSize: 7
+          }}
+        >
+          {parseInt(pages * per + 20) + "/" + photos.length}
+        </span>{" "}
+        <br />
         <Link to={"/photos/" + (parseInt(pages) - 1)}>-</Link>
         {pages}
         <Link to={"/photos/" + (parseInt(pages) + 1)}>+</Link>
@@ -44,7 +65,6 @@ export default function Photos() {
                 <p>{photo.title}</p>
               </div>
             ))}
-        {20 * pages}/{photos.length}
       </div>
     </>
   );

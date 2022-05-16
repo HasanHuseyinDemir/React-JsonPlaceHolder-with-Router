@@ -5,11 +5,19 @@ import { Link, useParams } from "react-router-dom";
 export default function User() {
   const userId = useParams();
   const [user, setUser] = useState([]);
+  const [userTodo, setUserTodo] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  //Kullanıcı özellikleri
   useEffect(() => {
     axios(`https://jsonplaceholder.typicode.com/users/${userId.id}`)
       .then((el) => setUser(el.data))
       .then(setLoading(false));
+  }, []);
+
+  //Todolist
+  useEffect(() => {
+    axios(`https://jsonplaceholder.typicode.com/users/${userId.id}/todos`);
   }, []);
 
   return (
@@ -46,6 +54,10 @@ export default function User() {
           </p>
         </div>
       )}
+      <div>
+        <h1>Todo</h1>
+      </div>
+
       <button className="button" title={"Posts of " + user.name}>
         Posts
       </button>
