@@ -8,7 +8,6 @@ import Posts from "./components/Posts";
 import Post from "./components/Post";
 import Albums from "./components/Albums";
 import Photos from "./components/Photos";
-import Todos from "./components/Todos";
 import NotFound from "./components/NotFound";
 import Album from "./components/Album";
 
@@ -17,7 +16,6 @@ export default function App() {
   const [users, setUsers] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [photos, setPhotos] = useState([]);
-  const [todos, setTodos] = useState([]);
 
   //Posts Sayısı
   useEffect(() => {
