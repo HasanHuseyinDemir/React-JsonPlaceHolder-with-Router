@@ -69,16 +69,6 @@ export default function User() {
           </div>
         </div>
       )}
-
-      <button className="button" title={"Posts of " + user.name}>
-        Posts
-      </button>
-      <button className="button" title={"Comments of " + user.name}>
-        Comments
-      </button>
-      <button className="button" title={"Albums of " + user.name}>
-        Albums
-      </button>
       <Link to="/users">
         <button className="button" title="Go Back to Users">
           Go Back
