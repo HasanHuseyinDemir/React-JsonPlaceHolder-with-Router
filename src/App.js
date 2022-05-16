@@ -10,6 +10,7 @@ import Albums from "./components/Albums";
 import Photos from "./components/Photos";
 import Todos from "./components/Todos";
 import NotFound from "./components/NotFound";
+import Album from "./components/Album";
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -65,6 +66,7 @@ export default function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/post/:id" element={<Post />} />
           <Route path="/albums" element={<Albums />} />
+          <Route path="/albums/:id" element={<Album />} />
           <Route path="/photos/" element={<Photos />} />
           <Route path="/photos/:page" element={<Photos />} />
           <Route path="*" element={<NotFound />} />

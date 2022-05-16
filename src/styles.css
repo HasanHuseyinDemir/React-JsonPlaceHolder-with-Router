@@ -189,3 +189,8 @@ ul {
   background-color: rgba(0, 0, 0, 0.027);
   font-weight: 300;
 }
+a :visited,
+a:link {
+  text-decoration: none;
+  color: black;
+}
