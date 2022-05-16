@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+.App {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(255, 238, 226);
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.links {
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+  padding: 5px;
+  background-color: rgb(107, 107, 107);
+}
+.links > *:link,
+.links > *:visited {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 12px;
+  width: 100%;
+  transition: 0.4s;
+}
+.links > *:hover {
+  background-color: white;
+  color: black;
+}
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 3vh;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.userList > *:visited,
+.userList > *:link {
+  text-align: left;
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  width: auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 3px 3px black;
+  border: 1px solid black;
+  transition: 0.2s;
+}
+.userList > *:hover {
+  box-shadow: 0 0;
+  color: rgb(0, 0, 0);
+}
+.user {
+  width: max-content;
+  padding: 20px;
+  background-color: gray;
+  color: white;
+  text-align: left;
+}
+.user > h1 {
+  text-align: center;
+}
+.container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.container > div {
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px black;
+}
+
+.button {
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background-color: white;
+  color: black;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.144);
+  border: solid 1px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.button:hover {
+  box-shadow: 0 0 0;
+}
+.user > p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10vw;
+}
+.usersGrid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.usersGrid > *,
+.usersGrid > *:link,
+.usersGrid > *:visited {
+  display: flex;
+  text-decoration: none;
+  height: 20vh;
+  width: 20vw;
+  background-color: rgb(104, 104, 104);
+  text-align: center;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  border: solid black 1px;
+  transition: 0.2s;
+  box-shadow: 3px 3px 2px black;
+}
+.usersGrid > *:hover {
+  background-color: white;
+  color: black;
+}
+.comment {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(214, 214, 214);
+  margin: 5px;
+  text-align: left;
+  padding: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-radius: 10px;
+}
+.commentID {
+  background-color: rgba(255, 255, 255, 0.192);
+  text-align: center;
+  padding: 2px;
+}
+.comments {
+  display: flex;
+  flex-direction: column;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: white;
+  border: solid;
+  padding: 10px;
+}
+.album {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.album > div {
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+}
+.photosNav > *:link,
+.photosNav > *:visited {
+  text-decoration: none;
+  margin: 10px;
+  background-color: rgba(255, 166, 0, 0.151);
+  color: black;
+  cursor: pointer;
+}
+.photos {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto auto auto auto auto auto auto;
+}
+.photo {
+  padding: 10px;
+  padding-top: 20px;
+
+  background-color: rgba(0, 0, 0, 0.027);
+  font-weight: 300;
+}
