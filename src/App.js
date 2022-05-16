@@ -41,11 +41,6 @@ export default function App() {
       setPhotos(el.data.length)
     );
   }, []);
-  useEffect(() => {
-    axios("https://jsonplaceholder.typicode.com/todos").then((el) =>
-      setTodos(el.data.length)
-    );
-  }, []);
 
   return (
     <div className="App">

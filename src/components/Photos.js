@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function Photos() {
   const [photos, setPhotos] = useState([]);
   const page = useParams();
   const [pages, setPages] = useState(0);
-  const [per, setPer] = useState(20);
+  const per = 20;
 
   //Sayfa Numarasına Erişim
   //Eğer sayfa numarası belirtilmedi ise
@@ -16,7 +16,6 @@ export default function Photos() {
     } else {
       setPages(page.page);
     }
-    console.log(parseInt(pages * per));
   }, [page]);
 
   useEffect(() => {
@@ -24,12 +23,6 @@ export default function Photos() {
       setPhotos(el.data)
     );
   }, []);
-
-  let navi = useNavigate();
-
-  function switcher() {
-    navi("/photos");
-  }
 
   useEffect(() => {
     if (pages * 20 >= photos.length || pages < 0) {
@@ -46,21 +39,21 @@ export default function Photos() {
             fontSize: 7
           }}
         >
-          {parseInt(pages * per + 20) + "/" + photos.length}
+          {parseInt(pages * per + 20, 10) + "/" + photos.length}
         </span>{" "}
         <br />
-        <Link to={"/photos/" + (parseInt(pages) - 1)}>-</Link>
+        <Link to={"/photos/" + (parseInt(pages, 10) - 1)}>-</Link>
         {pages}
-        <Link to={"/photos/" + (parseInt(pages) + 1)}>+</Link>
+        <Link to={"/photos/" + (parseInt(pages, 10) + 1)}>+</Link>
       </h1>
       <div className="photos">
         {photos &&
           photos
-            .slice(parseInt(pages * per), parseInt(pages * per + 20))
+            .slice(parseInt(pages * per, 10), parseInt(pages * per + 20, 10))
             .map((photo) => (
-              <div className="photo">
+              <div className="photo" key={photo.id}>
                 <a href={photo.url}>
-                  <img src={photo.thumbnailUrl} />
+                  <img src={photo.thumbnailUrl} alt="Press to enlarge" />
                 </a>
                 <p>{photo.title}</p>
               </div>
