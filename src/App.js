@@ -72,7 +72,7 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <p>Sayfama Hoşgeldiniz.</p>
+      <p>Welcome!</p>
     </div>
   );
 }
